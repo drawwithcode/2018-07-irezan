@@ -101,16 +101,16 @@ function drawBalloon(){
 }
 
 function checkThresh(vol){
-  if(hitrigger == false){
+  // if(hitrigger == false){
     if(vol > hithr){
-      hitrigger = true;
+      // hitrigger = true;
       blowCount++;
     }
-  } else if (hitrigger == true){
-    if(vol < lowthr){
-      hitrigger = false;
-    }
-  }
+  // } else if (hitrigger == true){
+  //   if(vol < lowthr){
+  //     hitrigger = false;
+  //   }
+  // }
 }
 
 function checkBalloonBlown(){
