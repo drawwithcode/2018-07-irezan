@@ -24,8 +24,9 @@ function setup() {
   subtitle = new textObject('Try it on your mobile phone', windowWidth / 2, windowHeight / 3, CENTER, ref / 35);
   startButton = new textObject('Start', windowWidth / 2, 3 * windowHeight / 4, CENTER, ref / 35);
   backButton = new textObject('Back', 4 * windowWidth / 5, 7 * windowHeight / 8, CENTER, ref / 35);
+  backButton2 = new textObject('Back', windowWidth / 2, 3 * windowHeight / 4, CENTER, ref / 35);
   instructions = new textObject('Blow on your microphone to help this balloon grow!', windowWidth / 2, windowHeight / 4, ref / 35);
-  infos = new textObject('Well done! You just wasted 5ml of water! The average human consumes 0.5l of water a day. Make sure to drink a lot!', windowWidth / 2, windowHeight / 3, ref / 35);
+  infos = new textObject('Well done! You just wasted 5ml of water! The average human consumes 0.5l of water a day, just by breathing. Make sure to drink a lot!', windowWidth / 2, windowHeight / 3, ref / 35);
 }
 
 function draw() {
@@ -57,6 +58,7 @@ function draw() {
     case 2:
       mic.stop();
       drawText(infos, 3 * windowWidth / 4);
+      drawText(backButton2);
       break;
       //Defaults to Home
     default:
@@ -92,8 +94,8 @@ function textObject(_text, _posX, _posY, _align, _fontSize) {
 
 function drawMaxSizeDash() {
   fill('rgba(255, 102, 0, 0.2)');
-  var blwidth = width / 22 + 30 * 8;
-  var blheight = height / 22 + 30 * 10;
+  var blwidth = width / 20 + 30 * 6;
+  var blheight = height / 20 + 30 * 8;
   var blX = width / 2;
   var blY = 3 * height / 4 - blheight / 2;
   ellipse(blX, blY, blwidth, blheight);
@@ -101,8 +103,8 @@ function drawMaxSizeDash() {
 
 function drawBalloon() {
   fill('rgba(255, 102, 0, 1)');
-  var blwidth = width / 22 + blowCount * 8;
-  var blheight = height / 22 + blowCount * 10;
+  var blwidth = width / 20 + blowCount * 6;
+  var blheight = height / 20 + blowCount * 8;
   var blX = width / 2;
   var blY = 3 * height / 4 - blheight / 2;
   ellipse(blX, blY, blwidth, blheight);
