@@ -3,7 +3,7 @@ var balloonBlown = false;
 var vol = 0;
 var blowCount = 0;
 var lowthr = 0.01;
-var hithr = 0.2;
+var hithr = 0.5;
 var hitrigger = false;
 
 var title;
@@ -98,14 +98,20 @@ function drawBalloon(){
   var blX = width/2;
   var blY = 3 * height/4 - blheight/2;
   ellipse(blX, blY,  blwidth, blheight);
-  stroke();
-  line(blX, blY, blX, windowHeight);
-  noFill();
-  ellipse(blX, blY - blheight/2, blwidth/10, blwidth/6);
-  fill(0);
-  noStroke();
-  ellipse(blX - blwidth/3, blY - 3*blheight/4, blwidth/8, blwidth/8);
-  ellipse(blX + blwidth/3, blY - 3*blheight/4, blwidth/8, blwidth/8);
+  push();
+    stroke(1);
+    line(blX, blY, blX, windowHeight);
+  pop();
+  push();
+    noFill();
+    ellipse(blX, blY - blheight/2, blwidth/10, blwidth/6);
+  pop();
+  push();
+    fill(0);
+    noStroke();
+    ellipse(blX - blwidth/3, blY - 3*blheight/4, blwidth/8, blwidth/8);
+    ellipse(blX + blwidth/3, blY - 3*blheight/4, blwidth/8, blwidth/8);
+  pop();
 }
 
 function checkThresh(vol){
@@ -138,16 +144,15 @@ function mousePressed(){
       break;
     case 1:
       var d = dist(mouseX, mouseY, backButton.posX, backButton.posY);
-      if (d < 40){
+      if (d < 10){
         state = 0;
       }
       break;
     case 2:
       var d = dist(mouseX, mouseY, backButton.posX, backButton.posY);
-      if (d < 40){
+      if (d < 10){
         state = 0;
       }
     default:
-
   }
 }
