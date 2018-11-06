@@ -132,19 +132,19 @@ function mousePressed(){
   switch (state) {
     case 0:
       var d = dist(mouseX, mouseY, startButton.posX, startButton.posY);
-      if (d < 10){
+      if (d < 40){
         state = 1;
       }
       break;
     case 1:
       var d = dist(mouseX, mouseY, backButton.posX, backButton.posY);
-      if (d < 10){
+      if (d < 40){
         state = 0;
       }
       break;
     case 2:
       var d = dist(mouseX, mouseY, backButton.posX, backButton.posY);
-      if (d < 10){
+      if (d < 40){
         state = 0;
       }
     default:
