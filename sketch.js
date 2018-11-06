@@ -17,15 +17,15 @@ var ref;
 function setup() {
   createCanvas(windowWidth, windowHeight);
   noStroke();
-  ref = Math.max(width, height);
+  ref = Math.max(windowWidth, windowHeight);
   textFont("Baloo Bhaijaan");
   mic = new p5.AudioIn();
   title = new textObject("Breathe", windowWidth/2, windowHeight/4, CENTER, ref/15);
-  subtitle = new textObject("Try it on your mobile phone", windowWidth/2, windowHeight/3, CENTER, ref/25);
-  startButton = new textObject("Start", windowWidth/2, 3 * windowHeight/4, CENTER, ref/25);
-  backButton = new textObject("Back", 4 * windowWidth/5, 7 * windowHeight/8, CENTER, ref/25);
-  instructions = new textObject("Blow on your microphone to help this balloon grow!", windowWidth/2, windowHeight/4, ref/25);
-  infos = new textObject("Well done! You just wasted 5ml of water! The average human consumes 0.5l of water a day. Make sure to drink a lot!", windowWidth/2, windowHeight/3, LEFT, ref/25);
+  subtitle = new textObject("Try it on your mobile phone", windowWidth/2, windowHeight/3, CENTER, ref/35);
+  startButton = new textObject("Start", windowWidth/2, 3 * windowHeight/4, CENTER, ref/35);
+  backButton = new textObject("Back", 4 * windowWidth/5, 7 * windowHeight/8, CENTER, ref/35);
+  instructions = new textObject("Blow on your microphone to help this balloon grow!", windowWidth/2, windowHeight/4, ref/35);
+  infos = new textObject("Well done! You just wasted 5ml of water! The average human consumes 0.5l of water a day. Make sure to drink a lot!", windowWidth/2, windowHeight/3, LEFT, ref/35);
 }
 
 function draw() {
@@ -69,7 +69,7 @@ function draw() {
 function drawText(textObj){
   var str = textObj.text;
   textAlign(textObj.align);
-  textSize(textObj.textSize);
+  textSize(textObj.fontSize);
   fill(255);
   text(str, textObj.posX, textObj.posY);
 }
