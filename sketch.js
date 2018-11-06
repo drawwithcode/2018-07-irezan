@@ -2,8 +2,8 @@ var state = 0;
 var balloonBlown = false;
 var vol = 0;
 var blowCount = 0;
-var lowthr = 0.1;
-var hithr = 0.5;
+var lowthr = 0.01;
+var hithr = 0.2;
 var hitrigger = false;
 
 var title;
