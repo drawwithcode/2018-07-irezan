@@ -161,7 +161,7 @@ function mousePressed() {
       }
       break;
     case 2:
-      var d = dist(mouseX, mouseY, backButton.posX, backButton.posY);
+      var d = dist(mouseX, mouseY, backButton2.posX, backButton2.posY);
       if (d < 10) {
         state = 0;
       }
