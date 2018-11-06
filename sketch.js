@@ -10,6 +10,7 @@ var title;
 var subtitle;
 var startButton;
 var backButton;
+var backButton2;
 var instructions;
 
 var ref;
