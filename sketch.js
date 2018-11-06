@@ -25,7 +25,7 @@ function setup() {
   startButton = new textObject("Start", windowWidth/2, 3 * windowHeight/4, CENTER, ref/35);
   backButton = new textObject("Back", 4 * windowWidth/5, 7 * windowHeight/8, CENTER, ref/35);
   instructions = new textObject("Blow on your microphone\nto help this balloon grow!", windowWidth/2, windowHeight/4, ref/35);
-  infos = new textObject("Well done! You just wasted 5ml of water!\nThe average human consumes 0.5l of water a day.\nMake sure to drink a lot!", windowWidth/2, windowHeight/3, LEFT, ref/35);
+  infos = new textObject("Well done! You just wasted 5ml of water!\nThe average human consumes 0.5l of water a day.\nMake sure to drink a lot!", windowWidth/2, windowHeight/3, CENTER, ref/35);
 }
 
 function draw() {
@@ -100,31 +100,32 @@ function drawBalloon(){
   ellipse(blX, blY,  blwidth, blheight);
   push();
     stroke(1);
-    line(blX, blY, blX, windowHeight);
+    line(blX, blY + blheight/2, blX, windowHeight);
   pop();
   push();
     noFill();
+    stroke(1);
     ellipse(blX, blY - blheight/2, blwidth/10, blwidth/6);
   pop();
   push();
     fill(0);
     noStroke();
-    ellipse(blX - blwidth/3, blY - 3*blheight/4, blwidth/8, blwidth/8);
-    ellipse(blX + blwidth/3, blY - 3*blheight/4, blwidth/8, blwidth/8);
+    ellipse(blX - blwidth/4, blY - blheight/4, blwidth/8, blwidth/8);
+    ellipse(blX + blwidth/4, blY - blheight/4, blwidth/8, blwidth/8);
   pop();
 }
 
 function checkThresh(vol){
-  // if(hitrigger == false){
+  if(hitrigger == false){
     if(vol > hithr){
-      // hitrigger = true;
+      hitrigger = true;
       blowCount++;
     }
-  // } else if (hitrigger == true){
-  //   if(vol < lowthr){
-  //     hitrigger = false;
-  //   }
-  // }
+  } else if (hitrigger == true){
+    if(vol < lowthr){
+      hitrigger = false;
+    }
+  }
 }
 
 function checkBalloonBlown(){
