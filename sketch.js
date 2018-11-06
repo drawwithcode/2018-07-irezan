@@ -24,8 +24,8 @@ function setup() {
   subtitle = new textObject("Try it on your mobile phone", windowWidth/2, windowHeight/3, CENTER, ref/35);
   startButton = new textObject("Start", windowWidth/2, 3 * windowHeight/4, CENTER, ref/35);
   backButton = new textObject("Back", 4 * windowWidth/5, 7 * windowHeight/8, CENTER, ref/35);
-  instructions = new textObject("Blow on your microphone to help this balloon grow!", windowWidth/2, windowHeight/4, ref/35);
-  infos = new textObject("Well done! You just wasted 5ml of water! The average human consumes 0.5l of water a day. Make sure to drink a lot!", windowWidth/2, windowHeight/3, LEFT, ref/35);
+  instructions = new textObject("Blow on your microphone\nto help this balloon grow!", windowWidth/2, windowHeight/4, ref/35);
+  infos = new textObject("Well done! You just wasted 5ml of water!\nThe average human consumes 0.5l of water a day.\nMake sure to drink a lot!", windowWidth/2, windowHeight/3, LEFT, ref/35);
 }
 
 function draw() {
@@ -98,6 +98,14 @@ function drawBalloon(){
   var blX = width/2;
   var blY = 3 * height/4 - blheight/2;
   ellipse(blX, blY,  blwidth, blheight);
+  stroke();
+  line(blX, blY, blX, windowHeight);
+  noFill();
+  ellipse(blX, blY - blheight/2, blwidth/10, blwidth/6);
+  fill(0);
+  noStroke();
+  ellipse(blX - blwidth/3, blY - 3*blheight/4, blwidth/8, blwidth/8);
+  ellipse(blX + blwidth/3, blY - 3*blheight/4, blwidth/8, blwidth/8);
 }
 
 function checkThresh(vol){
